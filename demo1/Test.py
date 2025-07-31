@@ -4,6 +4,7 @@ import torch
 from torchvision import transforms
 from Mdoel import HandAutoencoder
 import torch.nn.functional as F
+import time
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -17,7 +18,7 @@ transform = transforms.Compose([
     transforms.ToTensor()
 ])
 
-THRESHOLD = 0.017  # reconstruction error threshold
+THRESHOLD = 0.0205  # reconstruction error threshold
 
 cap = cv2.VideoCapture(0)
 while True:
@@ -25,15 +26,17 @@ while True:
     if not ret:
         break
 
+    start_time = time.time()
     img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     img_tensor = transform(img).unsqueeze(0).to(device)
 
     with torch.no_grad():
         recon = model(img_tensor)
         loss = F.mse_loss(recon, img_tensor).item()
+        elapsed_ms = (time.time() - start_time) * 1000
 
     if loss < THRESHOLD:
-        text = f"EL GORULDU! Loss: {loss:.4f}"
+        text = f"EL YOK. Loss: {loss:.4f} | Sure: {elapsed_ms:.1f} ms"
         color = (0, 255, 0)
     else:
         text = f"EL YOK. Loss: {loss:.4f}"
