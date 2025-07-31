@@ -3,7 +3,7 @@ import time
 from ultralytics import YOLO
 
 # Modeli yükle (YOLOv8 veya YOLOv5 otomatik seçilir)
-model = YOLO('../yolov8n.pt')  # veya 'yolov5s.pt' de kullanabilirsin
+model = YOLO('../demo1/yolov8n.pt')  # veya 'yolov5s.pt' de kullanabilirsin
 
 cap = cv2.VideoCapture(0)
 print("Webcam başlatıldı. Çıkmak için 'q' tuşuna bas.")

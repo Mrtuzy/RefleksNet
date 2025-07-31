@@ -63,5 +63,5 @@ for epoch in range(epochs):
     print(f"Epoch {epoch+1}/{epochs}, Loss: {running_loss/len(train_loader.dataset):.4f}")
 
 # Modeli kaydet
-os.makedirs("../saved_models", exist_ok=True)
-torch.save(model.state_dict(), "../saved_models/refleksnet_hand.pth")
+os.makedirs("../demo1/saved_models", exist_ok=True)
+torch.save(model.state_dict(), "../demo1/saved_models/refleksnet_hand.pth")

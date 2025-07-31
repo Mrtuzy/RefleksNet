@@ -33,7 +33,7 @@ class RefleksNet(nn.Module):
 
 # Modeli yükle
 model = RefleksNet().to(device)
-model.load_state_dict(torch.load('../saved_models/refleksnet_hand.pth', map_location=device))
+model.load_state_dict(torch.load('../demo1/saved_models/refleksnet_hand.pth', map_location=device))
 model.eval()
 
 # Görüntü dönüşümü

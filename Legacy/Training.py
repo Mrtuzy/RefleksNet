@@ -138,8 +138,8 @@ def main():
         train(model, device, train_loader, optimizer, criterion, epoch)
         evaluate(model, device, test_loader)
 
-    os.makedirs("../saved_models", exist_ok=True)
-    torch.save(model.state_dict(), "../saved_models/reflexnet_hands_vs_nonhands.pth")
+    os.makedirs("../demo1/saved_models", exist_ok=True)
+    torch.save(model.state_dict(), "../demo1/saved_models/reflexnet_hands_vs_nonhands.pth")
     print("✅ Model kaydedildi: saved_models/reflexnet_hands_vs_nonhands.pth")
 
 if __name__ == "__main__":

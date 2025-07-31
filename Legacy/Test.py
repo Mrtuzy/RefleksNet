@@ -9,7 +9,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Modeli yükle
 model = ReflexNet().to(device)
-model.load_state_dict(torch.load("../saved_models/reflexnet_hands_vs_nonhands.pth", map_location=device))
+model.load_state_dict(torch.load("../demo1/saved_models/reflexnet_hands_vs_nonhands.pth", map_location=device))
 model.eval()
 
 # Görüntü ön işleme (modelin beklediği boyut ve normalize)
